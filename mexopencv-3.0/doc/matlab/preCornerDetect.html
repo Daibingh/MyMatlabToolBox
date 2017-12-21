@@ -1,0 +1,61 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.preCornerDetect</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.preCornerDetect</td>
+            <td class="subheader-left">&#26597;&#30475; cv.preCornerDetect &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.preCornerDetect</div>
+      <div class="helpcontent"><p>preCornerDetect  Calculates a feature map for corner detection</p>
+
+<pre><code>dst = <a href="preCornerDetect.html">cv.preCornerDetect</a>(src)
+dst = <a href="preCornerDetect.html">cv.preCornerDetect</a>(src, 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>src</strong> Source single-channel 8-bit of floating-point image.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>dst</strong> Output image that has the <code>single</code> type and the same size as <code>src</code>.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>KSize</strong> Aperture size of the <a href="Sobel.html">cv.Sobel</a> operator. default 3.</li>
+<li><strong>BorderType</strong> Pixel extrapolation method. default 'Default'</li>
+</ul>
+
+<p>The function calculates the complex spatial derivative-based function of the
+source image.</p>
+
+<pre><code>dst = (Dx*src)^2*Dyy*src + (Dy*src)^2*Dxx*src - 2*Dx*src*Dy*src*Dxy*src
+</code></pre>
+
+<p>where <code>Dx</code>, <code>Dy</code> are the first image derivatives, <code>Dxx</code>, <code>Dyy</code> are the
+second image derivatives, and <code>Dxy</code> is the mixed derivative.</p>
+
+<p>The corners can be found as local maximums of the functions, as shown below:</p>
+
+<pre><code>corners = <a href="preCornerDetect.html">cv.preCornerDetect</a>(image, 'KSize',3);
+
+% dilation with 3x3 rectangular structuring element
+dilated_corners = <a href="dilate.html">cv.dilate</a>(corners);
+corner_mask = (corners == dilated_corners);</code></pre>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="cornerMinEigenVal.html">cv.cornerMinEigenVal</a></div>
+   </body>
+</html>

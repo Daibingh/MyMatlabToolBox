@@ -1,0 +1,90 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.fitLine</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.fitLine</td>
+            <td class="subheader-left">&#26597;&#30475; cv.fitLine &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.fitLine</div>
+      <div class="helpcontent"><p>fitLine  Fits a line to a 2D or 3D point set</p>
+
+<pre><code>lin = <a href="fitLine.html">cv.fitLine</a>(points)
+lin = <a href="fitLine.html">cv.fitLine</a>(points, 'OptionName',optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>points</strong> Input vector of 2D or 3D points.
+2D points stored in a cell array of 2-element vectors in the form
+<code>{[x,y], [x,y], ...}</code> or a Nx2/Nx1x2/1xNx2 numeric array.
+3D points stored in a cell array of 3-element vectors in the form
+<code>{[x,y,z], [x,y,z], ...}</code> or a Nx3/Nx1x3/1xNx3 numeric array.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>lin</strong> Output line parameters. In case of 2D fitting, it is a vector of
+4-elements vector <code>[vx,vy, x0,y0]</code>, where <code>[vx,vy]</code> is a normalized
+vector collinear to the line and <code>[x0,y0]</code> is a point on the line. In
+case of 3D fitting, it is a 6-elements vector <code>[vx,vy,vz, x0,y0,z0]</code>,
+where <code>[vx,vy,vz]</code> is a normalized vector collinear to the line and
+<code>[x0,y0,z0]</code> is a point on the line.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>DistType</strong> Distance used by the M-estimator (see explanation below).
+One of: 'L2' (default), 'L1', 'L12', 'Fair', 'Welsch', 'Huber'.</li>
+<li><strong>Param</strong> Numerical parameter (<code>C</code>) for some types of distances. If it is
+0, an optimal value is chosen. default 0.</li>
+<li><strong>RadiusEps</strong> Sufficient accuracy for the radius (distance between the
+coordinate origin and the line). default 0.01</li>
+<li><strong>AngleEps</strong> Sufficient accuracy for the angle. default 0.01</li>
+</ul>
+
+<p>The function fitLine fits a line to a 2D or 3D point set by minimizing
+<code>\sum_i rho(r_i)</code> where <code>r_i</code> is a distance between the i-th point and the
+line, and <code>rho(r)</code> is a distance function, one of the following:</p>
+
+<ul>
+<li><p><strong>L2</strong></p>
+<p>        rho(r) = r^2/2 (the simplest and the fastest least-squares method)</p>
+</li>
+<li><p><strong>L1</strong></p>
+<p>        rho(r) = r</p>
+</li>
+<li><p><strong>L12</strong></p>
+<p>        rho(r) = 2 * (sqrt(1+r^2/2) - 1)</p>
+</li>
+<li><p><strong>Fair</strong></p>
+<p>        rho(r) = C^2 * (r/C - log(1 + r/c)), where C = 1.3998</p>
+</li>
+<li><p><strong>Welsch</strong></p>
+<p>        rho(r) = C^2/2 * (1 - exp(-(r/c)^2)), where C = 2.9846</p>
+</li>
+<li><p><strong>Huber</strong></p>
+<p>                 | r^2/2          if r&lt;C
+rho(r) = |                          , where C = 1.345
+| C * (r - C/2)  otherwise</p>
+</li>
+</ul>
+
+<p>The algorithm is based on the M-estimator
+(<a href="http://en.wikipedia.org/wiki/M-estimator">http://en.wikipedia.org/wiki/M-estimator</a>) technique that iteratively fits
+the line using the weighted least-squares algorithm. After each iteration
+the weights <code>w_i</code> are adjusted to be inversely proportional to <code>rho(r_i)</code>.</p>
+</div><!--after help -->
+   </body>
+</html>

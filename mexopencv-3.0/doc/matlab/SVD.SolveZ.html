@@ -1,0 +1,60 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.SVD.SolveZ</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.SVD.SolveZ</td>
+            <td class="subheader-left">&#26597;&#30475; cv.SVD.SolveZ &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.SVD.SolveZ</div>
+      <div class="helpcontent"><p>SolveZ  Solves an under-determined singular linear system</p>
+
+<pre><code>dst = <a href="SVD.html">cv.SVD</a>.SolveZ(A)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>A</strong> Left-hand-side matrix.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>dst</strong> Found solution <code>x</code>.</li>
+</ul>
+
+<p>The method finds a unit-length solution <code>x</code> of a singular
+linear system <code>A*x = 0</code>. Depending on the rank of <code>A</code>, there can
+be no solutions, a single solution or an infinite number of
+solutions. In general, the algorithm solves the following
+problem:</p>
+
+<pre><code>dst = argmin_{x: ||x||=1} || A * x ||</code></pre>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="SVD.compute.html">cv.SVD/compute</a>, <a href="SVD.backSubst.html">cv.SVD/backSubst</a></div>
+      <!--Method-->
+      <div class="sectiontitle">Method Details</div>
+      <table class="class-details">
+         <tr>
+            <td class="class-detail-label">Access</td>
+            <td>public</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Sealed</td>
+            <td>false</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Static</td>
+            <td>true</td>
+         </tr>
+      </table>
+   </body>
+</html>

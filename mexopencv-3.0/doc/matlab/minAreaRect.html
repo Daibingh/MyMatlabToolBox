@@ -1,0 +1,49 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.minAreaRect</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.minAreaRect</td>
+            <td class="subheader-left">&#26597;&#30475; cv.minAreaRect &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.minAreaRect</div>
+      <div class="helpcontent"><p>minAreaRect  Finds a rotated rectangle of the minimum area enclosing the input 2D point set</p>
+
+<pre><code>rct = <a href="minAreaRect.html">cv.minAreaRect</a>(points)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>points</strong> Input vector of 2D points, stored in numeric array
+(Nx2/Nx1x2/1xNx2) or cell array of 2-element vectors (<code>{[x,y], ...}</code>).</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>rct</strong> Output rotated rectangle struct with the following fields:<ul>
+<li><strong>center</strong> The rectangle mass center <code>[x,y]</code>.</li>
+<li><strong>size</strong> Width and height of the rectangle <code>[w,h]</code>.</li>
+<li><strong>angle</strong> The rotation angle in a clockwise direction.
+When the angle is 0, 90, 180, 270 etc., the
+rectangle becomes an up-right rectangle.</li>
+</ul>
+</li>
+</ul>
+
+<p>The function calculates and returns the minimum-area bounding rectangle
+(possibly rotated) for a specified point set. Developer should keep in mind
+that the returned <code>rct</code> can contain negative indices when data is close to
+the containing Mat element boundary.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="fitEllipse.html">cv.fitEllipse</a>, <a href="convexHull.html">cv.convexHull</a></div>
+   </body>
+</html>

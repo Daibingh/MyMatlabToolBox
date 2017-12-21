@@ -1,0 +1,55 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.fillPoly</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.fillPoly</td>
+            <td class="subheader-left">&#26597;&#30475; cv.fillPoly &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.fillPoly</div>
+      <div class="helpcontent"><p>fillPoly  Fills the area bounded by one or more polygons</p>
+
+<pre><code>img = <a href="fillPoly.html">cv.fillPoly</a>(img, pts)
+[...] = <a href="fillPoly.html">cv.fillPoly</a>(..., 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>img</strong> Image.</li>
+<li><strong>pts</strong> Array of polygons where each polygon is represented as an array
+of points. A cell array of cell arrays of 2-element vectors, in the
+form: <code>{{[x,y], [x,y], ...}, ...}</code>, or a cell array of Nx2 matrices.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>img</strong> Output image, same size and type as input <code>img</code>.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Color</strong> 3-element floating point vector specifying polygon color.
+default zeros</li>
+<li><strong>LineType</strong> Type of the polygon boundaries. One of 8,4,'AA'
+(Anti-aliased line). default 8.</li>
+<li><strong>Shift</strong> Number of fractional bits in the vertex coordinates. default 0</li>
+<li><strong>Offset</strong> Optional offset of all points of the contours. default <code>[0,0]</code></li>
+</ul>
+
+<p>The function <a href="fillPoly.html">cv.fillPoly</a> fills an area bounded by several polygonal
+contours. The function can fill complex areas, for example, areas with
+holes, contours with self-intersections (some of thier parts), and so forth.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="line.html">cv.line</a>, <a href="fillConvexPoly.html">cv.fillConvexPoly</a></div>
+   </body>
+</html>

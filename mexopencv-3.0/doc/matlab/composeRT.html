@@ -1,0 +1,64 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.composeRT</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.composeRT</td>
+            <td class="subheader-left">&#26597;&#30475; cv.composeRT &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.composeRT</div>
+      <div class="helpcontent"><p>composeRT  Combines two rotation-and-shift transformations</p>
+
+<pre><code>S = <a href="composeRT.html">cv.composeRT</a>(rvec1, tvec1, rvec2, tvec2)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>rvec1</strong> First rotation vector, 3x1 float vector.</li>
+<li><strong>tvec1</strong> First translation vector, 3x1 float vector.</li>
+<li><strong>rvec2</strong> Second rotation vector, 3x1 float vector.</li>
+<li><strong>tvec2</strong> Second translation vector, 3x1 float vector.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>S</strong> A scalar struct with the following fields:<ul>
+<li><strong>rvec3</strong> Rotation vector of the superposition, 3x1 float vector.</li>
+<li><strong>tvec3</strong> Translation vector of the superposition, 3x1 float vector.</li>
+<li><strong>dr3dr1</strong>, <strong>dr3dt1</strong>, <strong>dr3dr2</strong>, <strong>dr3dt2</strong>,
+<strong>dt3dr1</strong>, <strong>dt3dt1</strong>, <strong>dt3dr2</strong>, <strong>dt3dt2</strong>
+Derivatives of <code>rvec3</code> or <code>tvec3</code> with regard to <code>rvec1</code>,
+<code>tvec1</code>, <code>rvec2</code>, and <code>tvec2</code>, respectively. Each derivative is
+a 3x3 float matrix.</li>
+</ul>
+</li>
+</ul>
+
+<p>The function computes:</p>
+
+<pre><code>rvec3 = rodrigues^-1( rodorigues(rvec2) * rodrigues(rvec1) )
+tvec3 = rodrigues(rvec2) * tvec1 + tvec2
+</code></pre>
+
+<p>where <code>rodrigues</code> denotes a rotation vector to a rotation matrix
+transformation, and <code>rodrigues^-1</code> denotes the inverse transformation.
+See <a href="Rodrigues.html">cv.Rodrigues</a> for details.</p>
+
+<p>Also, the function can compute the derivatives of the output vectors with
+regards to the input vectors (see cv.matMulDeriv). The function us used
+inside <a href="stereoCalibrate.html">cv.stereoCalibrate</a> but can also be used in your own code where
+Levenberg-Marquardt or another gradient-based solver is used to optimize a
+function that contains a matrix multiplication.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="Rodrigues.html">cv.Rodrigues</a>, <a href="matMulDeriv.html">cv.matMulDeriv</a>, <a href="stereoCalibrate.html">cv.stereoCalibrate</a></div>
+   </body>
+</html>

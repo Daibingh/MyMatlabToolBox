@@ -1,0 +1,50 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getPerspectiveTransform</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getPerspectiveTransform</td>
+            <td class="subheader-left">&#26597;&#30475; cv.getPerspectiveTransform &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.getPerspectiveTransform</div>
+      <div class="helpcontent"><p>getPerspectiveTransform  Calculates a perspective transform from four pairs of the corresponding points</p>
+
+<pre><code>T = <a href="getPerspectiveTransform.html">cv.getPerspectiveTransform</a>(src, dst)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>src</strong> Coordinates of quadrangle vertices in the source image. A numeric
+4-by-2 row vectors or a cell-array of 2-element vectors of length 4
+<code>{[x,y], [x,y], [x,y], [x,y]}</code></li>
+<li><strong>dst</strong> Coordinates of the corresponding quadrangle vertices in the
+destination image. Same type and size as <code>src</code>.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>T</strong> 3-by-3 perspective transformation matrix</li>
+</ul>
+
+<p>The function calculates the 3x3 matrix of a perspective transform so that:</p>
+
+<pre><code> t_i * [X_i; Y_i; 1] = T * [x_i; y_i; 1]
+</code></pre>
+
+<p>where</p>
+
+<pre><code> dst(i,:) = [X_i, Y_i], src(i,:) = [x_i, y_i]  for i=1,2,3</code></pre>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="findHomography.html">cv.findHomography</a>, <a href="warpPerspective.html">cv.warpPerspective</a>, <a href="perspectiveTransform.html">cv.perspectiveTransform</a>,
+   cp2tform, fitgeotrans, estimateGeometricTransform</div>
+   </body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.convertPointsToHomogeneous</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.convertPointsToHomogeneous</td>
+            <td class="subheader-left">&#26597;&#30475; cv.convertPointsToHomogeneous &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.convertPointsToHomogeneous</div>
+      <div class="helpcontent"><p>convertPointsToHomogeneous  Converts points from Euclidean to homogeneous space</p>
+
+<pre><code>dst = <a href="convertPointsToHomogeneous.html">cv.convertPointsToHomogeneous</a>(src)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>src</strong> Input vector of N-dimensional points (2D/3D points).
+Mx2/Mx1x2/1xMx2 or Mx3/Mx1x3/1xMx3 numeric array, or cell-array of
+2/3-element vectors in the form: <code>{[x,y], [x,y], ...}</code> or
+<code>{[x,y,z], [x,y,z], ...}</code>. Supports floating-point types.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>dst</strong> Output vector of (N+1)-dimensional points (3D/4D points).
+Mx3/Mx1x3 or Mx4/Mx1x4 numeric array, or cell-array of 3/4-elements
+vectors, respectively matching the input shape.</li>
+</ul>
+
+<p>The function converts points from Euclidean to homogeneous space by
+appending 1's to the tuple of point coordinates. That is, each point
+<code>(x1, x2, ..., xn)</code> is converted to <code>(x1, x2, ..., xn, 1)</code>.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="convertPointsFromHomogeneous.html">cv.convertPointsFromHomogeneous</a></div>
+   </body>
+</html>

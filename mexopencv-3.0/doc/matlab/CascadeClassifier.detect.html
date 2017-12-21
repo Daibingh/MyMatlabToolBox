@@ -1,0 +1,99 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.CascadeClassifier/detect</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.CascadeClassifier/detect</td>
+            <td class="subheader-left">&#26597;&#30475; cv.CascadeClassifier/detect &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.CascadeClassifier/detect</div>
+      <div class="helpcontent"><p>detect  Detects objects of different sizes in the input image.</p>
+
+<pre><code>boxes = classifier.detect(im)
+[boxes, numDetections] = classifier.detect(im)
+[boxes, rejectLevels, levelWeights] = classifier.detect(im)
+[...] = classifier.detect(im, 'Option', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>im</strong> Matrix of the type <code>uint8</code> containing an image where
+objects are detected.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>boxes</strong> Cell array of rectangles where each rectangle
+contains the detected object, the rectangles may be
+partially outside the original image.</li>
+<li><strong>numDetections</strong> optional vector of detection numbers for the
+corresponding objects. An object's number of detections is
+the number of neighboring positively classified rectangles
+that were joined together to form the object.</li>
+<li><strong>rejectLevels</strong> optional output vector of integers. Implies
+<code>OutputRejectLevels=true</code>.</li>
+<li><strong>levelWeights</strong> optional output vector of doubles. Implies
+<code>OutputRejectLevels=true</code>.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>ScaleFactor</strong> Parameter specifying how much the image size
+is reduced at each image scale. default 1.1</li>
+<li><strong>MinNeighbors</strong> Parameter specifying how many neighbors each
+candiate rectangle should have to retain it. default 3</li>
+<li><strong>MinSize</strong> Minimum possible object size. Objects smaller than
+that are ignored. Not set by default.</li>
+<li><strong>MaxSize</strong> Maximum possible object size. Objects larger than
+that are ignored. Not set by default.</li>
+<li><strong>OutputRejectLevels</strong> if is true returns <code>rejectLevels</code> and
+<code>levelWeights</code>. default false</li>
+<li><strong>DoCannyPruning</strong> Parameter with the same meaning for an old
+cascade as in the function <code>cvHaarDetectObjects</code>. It is
+not used for a new cascade. default false</li>
+<li><strong>ScaleImage</strong> Parameter with the same meaning for an old
+cascade as in the function <code>cvHaarDetectObjects</code>. It is
+not used for a new cascade. default false</li>
+<li><strong>FindBiggestObject</strong> Parameter with the same meaning for an
+old cascade as in the function <code>cvHaarDetectObjects</code>. It
+is not used for a new cascade. default false</li>
+<li><strong>DoRoughSearch</strong> Parameter with the same meaning for an old
+cascade as in the function <code>cvHaarDetectObjects</code>. It is
+not used for a new cascade. default false</li>
+</ul>
+
+<p>The detected objects are returned as a cell array of rectangles.
+Note that the function has three variants based on the number of
+output arguments.</p>
+
+<p>The function is parallelized with the TBB library.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="CascadeClassifier.CascadeClassifier.html">cv.CascadeClassifier/CascadeClassifier</a></div>
+      <!--Method-->
+      <div class="sectiontitle">Method Details</div>
+      <table class="class-details">
+         <tr>
+            <td class="class-detail-label">Access</td>
+            <td>public</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Sealed</td>
+            <td>false</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Static</td>
+            <td>false</td>
+         </tr>
+      </table>
+   </body>
+</html>

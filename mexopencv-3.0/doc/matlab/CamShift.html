@@ -1,0 +1,66 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.CamShift</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.CamShift</td>
+            <td class="subheader-left">&#26597;&#30475; cv.CamShift &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.CamShift</div>
+      <div class="helpcontent"><p>CamShift  Finds an object center, size, and orientation</p>
+
+<pre><code>box = <a href="CamShift.html">cv.CamShift</a>(probImage, window)
+[box,window] = <a href="CamShift.html">cv.CamShift</a>(probImage, window)
+[...] = <a href="CamShift.html">cv.CamShift</a>(..., 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>probImage</strong> Back projection of the object histogram. See
+<a href="calcBackProject.html">cv.calcBackProject</a> for details.</li>
+<li><strong>window</strong> Initial search window <code>[x,y,w,h]</code>.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>box</strong> Output rectangle with rotation. A scalar structure of the form:
+<code>struct('center',[x,y], 'size',[w,h], 'angle',a)</code></li>
+<li><strong>window</strong> Converged CamShift window <code>[x,y,w,h]</code></li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Criteria</strong> Stop criteria for the underlying <a href="meanShift.html">cv.meanShift</a>. Accepts a
+struct with 'type', 'maxCount', and 'epsilon' fields.
+Default <code>struct('type','Count+EPS', 'maxCount',100, 'epsilon',1.0)</code></li>
+</ul>
+
+<p>The function implements the CamShift object tracking algrorithm
+[Bradski98]. First, it finds an object center using <a href="meanShift.html">cv.meanShift</a> and then
+adjusts the window size and finds the optimal rotation. The function
+returns the rotated rectangle structure that includes the object
+position, size, and orientation. The next position of the search window
+can be obtained with <a href="RotatedRect.html">cv.RotatedRect</a>.boundingRect.</p>
+
+<h2> References</h2>
+
+<p>[Bradski98]:</p>
+
+<blockquote>
+<p>Gary R Bradski. Computer vision face tracking for use in a perceptual
+user interface. 1998.</p>
+</blockquote>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="meanShift.html">cv.meanShift</a>. <a href="calcBackProject.html">cv.calcBackProject</a>, vision.HistogramBasedTracker</div>
+   </body>
+</html>

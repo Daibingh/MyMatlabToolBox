@@ -1,0 +1,67 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getTextSize</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getTextSize</td>
+            <td class="subheader-left">&#26597;&#30475; cv.getTextSize &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.getTextSize</div>
+      <div class="helpcontent"><p>getTextSize  Calculates the width and height of a text string</p>
+
+<pre><code>[siz, baseLine] = <a href="getTextSize.html">cv.getTextSize</a>(text)
+[...] = <a href="getTextSize.html">cv.getTextSize</a>(..., 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>text</strong> Input text string.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>siz</strong> Size of a box that contains the specified text <code>[w,h]</code>.</li>
+<li><strong>baseLine</strong> y-coordinate of the baseline relative to the bottom-most
+text point.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>FontFace</strong> Font to use. One of the following:<ul>
+<li><strong>HersheySimplex</strong> (default)</li>
+<li><strong>HersheyPlain</strong></li>
+<li><strong>HersheyDuplex</strong></li>
+<li><strong>HersheyComplex</strong></li>
+<li><strong>HersheyTriplex</strong></li>
+<li><strong>HersheyComplexSmall</strong></li>
+<li><strong>HersheyScriptSimplex</strong></li>
+<li><strong>HersheyScriptComplex</strong></li>
+</ul>
+</li>
+<li><strong>FontStyle</strong> Font style. One of 'Regular' (default) or 'Italic'</li>
+<li><strong>FontScale</strong> Font scale factor that is multiplied by the
+font-specific base size. default 1.0</li>
+<li><strong>Thickness</strong> Thickness of lines used to render the text. default 1</li>
+</ul>
+
+<p>The function <a href="getTextSize.html">cv.getTextSize</a> calculates and returns the size of a box that
+contains the specified text.</p>
+
+<h2> Example</h2>
+
+<p>Refer to the <code>draw_text_demo.m</code> sample. The code renders some text, the
+tight box surrounding it, and the baseline.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="putText.html">cv.putText</a></div>
+   </body>
+</html>

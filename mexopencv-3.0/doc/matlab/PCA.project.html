@@ -1,0 +1,66 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.PCA/project</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.PCA/project</td>
+            <td class="subheader-left">&#26597;&#30475; cv.PCA/project &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.PCA/project</div>
+      <div class="helpcontent"><p>project  Projects vector(s) to the principal component subspace</p>
+
+<pre><code>Y = pca.project(X)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>X</strong> input vector(s); must have the same dimensionality and
+the same layout as the input data used at PCA phase, that
+is, if 'Row' was specified, then <code>size(X,2)==size(data,2)</code>
+(vector dimensionality) and <code>size(X,1)</code> is the number of
+vectors to project, and the same is true for the 'Col'
+case.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>Y</strong> output vectors (PC coefficients); in case of 'Col', the
+output matrix has as many columns as the number of input
+vectors, this means that <code>size(Y,2)==size(X,2)</code> and the
+number of rows match the number of principal components
+(for example, <code>MaxComponents</code> parameter passed to the
+constructor).</li>
+</ul>
+
+<p>The method project one or more vectors to the principal
+component subspace, where each vector projection is
+represented by coefficients in the principal component basis.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="PCA.html">cv.PCA</a> <a href="PCA.backProject.html">cv.PCA/backProject</a></div>
+      <!--Method-->
+      <div class="sectiontitle">Method Details</div>
+      <table class="class-details">
+         <tr>
+            <td class="class-detail-label">Access</td>
+            <td>public</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Sealed</td>
+            <td>false</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Static</td>
+            <td>false</td>
+         </tr>
+      </table>
+   </body>
+</html>

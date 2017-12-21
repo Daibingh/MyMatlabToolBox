@@ -1,0 +1,98 @@
+#
+# Travis CI build script.
+# https://travis-ci.org/kyamagu/mexopencv
+#
+
+#TODO:
+# * compile opencv_contrib
+# * clang compiler
+# * OSX operating system
+
+# C++
+language: cpp
+
+compiler: gcc
+
+# Ubuntu 12.04 LTS Server Edition 64-bit (precise)
+sudo: required
+os: linux
+
+# Ubuntu 14.04 LTS Server Edition 64-bit (trusty)
+#dist: trusty
+
+# whitelisted branches to build
+branches:
+  only:
+    - master
+    - v3.0
+
+# global environment variables
+env:
+  global:
+    - MCV_ROOT=$(pwd)
+    - OCTAVERC=$HOME/.octaverc
+    - OCTAVE_OPTS="--no-gui --no-window-system"
+    # whether to install Octave Forge packages. They are optional, tests will
+    # simply skip if needed packages are not detected. Note that the latest
+    # octave-image fails to compile with gcc-4.6 as it needs C++11 support.
+    - OCT_STATS=yes
+    - OCT_IMAGE=no
+    # common options for make
+    - MAKE_OPTS="NO_CV_PKGCONFIG_HACK=1 TEST_CONTRIB=false WITH_OCTAVE=1"
+    # Extra make arguments
+    # (avoid using too many parallel jobs, as it could starve memory!)
+    - MAKE_EXTRA=-j2
+    # whether to generate doxygen HTML documentation
+    - DOXY=yes
+
+before_install:
+  # install Octave 4.0.0 and OpenCV 3.0.0 from PPA
+  - sudo add-apt-repository -y ppa:octave/stable
+  - sudo add-apt-repository -y ppa:amarburg/opencv3
+  - sudo apt-get update -qq
+  - sudo apt-get install -y octave liboctave-dev octave-pkg-dev
+  - sudo apt-get install -y libopencv3-dev
+  - if [ "$DOXY" = "yes" ]; then sudo apt-get install -y doxygen ; fi
+  # install image and statistics packages used by some tests
+  - if [ "$OCT_STATS" = "yes" ]; then octave $OCTAVE_OPTS --eval "try, pkg install -forge -local io statistics, end" ; fi
+  - if [ "$OCT_IMAGE" = "yes" ]; then octave $OCTAVE_OPTS --eval "try, pkg install -forge -local image, end" ; fi
+  # show info about build tools
+  - printenv
+  - lsb_release -a
+  - uname -a
+  - dpkg -s octave liboctave-dev libopencv3-dev
+  - $CXX --version
+  - make --version
+  - pkg-config --version
+  - octave $OCTAVE_OPTS --version
+  - octave $OCTAVE_OPTS --eval "pkg list"
+  - pkg-config --modversion opencv
+  - pkg-config --cflags --libs opencv
+  - if [ "$DOXY" = "yes" ]; then doxygen --version ; fi
+
+install:
+  # compile mexopencv
+  - make $MAKE_OPTS $MAKE_EXTRA all
+  # build docs
+  - if [ "$DOXY" = "yes" ]; then make $MAKE_OPTS doc ; fi
+
+before_script:
+  # create .octaverc file (where we setup path and load required packages on start)
+  # (due to bug in Octave, we must also add private directories on path)
+  - touch $OCTAVERC
+  - echo "crash_dumps_octave_core(false);" >> $OCTAVERC
+  - echo "more off" >> $OCTAVERC
+  - if [ "$OCT_STATS" = "yes" ]; then echo "try, pkg load statistics, end" >> $OCTAVERC ; fi
+  - if [ "$OCT_IMAGE" = "yes" ]; then echo "try, pkg load image, end" >> $OCTAVERC ; fi
+  - echo "cd('$MCV_ROOT');" >> $OCTAVERC
+  - echo "addpath('$MCV_ROOT');" >> $OCTAVERC
+  - echo "addpath(fullfile('$MCV_ROOT','+cv','private'));" >> $OCTAVERC
+  - echo "%addpath(fullfile('$MCV_ROOT','opencv_contrib'));" >> $OCTAVERC
+  - echo "%addpath(fullfile('$MCV_ROOT','opencv_contrib','+cv','private'));" >> $OCTAVERC
+  - cat $OCTAVERC
+  # print cv build info
+  - octave $OCTAVE_OPTS --eval "path, disp(cv.getBuildInformation())"
+
+script:
+  # run test suite
+  - make $MAKE_OPTS test

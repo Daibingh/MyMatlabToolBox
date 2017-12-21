@@ -1,0 +1,63 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.meanShift</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.meanShift</td>
+            <td class="subheader-left">&#26597;&#30475; cv.meanShift &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.meanShift</div>
+      <div class="helpcontent"><p>meanShift  Finds an object on a back projection image</p>
+
+<pre><code>window = <a href="meanShift.html">cv.meanShift</a>(probImage, window)
+[window,iter] = <a href="meanShift.html">cv.meanShift</a>(probImage, window)
+[...] = <a href="meanShift.html">cv.meanShift</a>(..., 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>probImage</strong> Back projection of the object histogram. See
+<a href="calcBackProject.html">cv.calcBackProject</a> for details.</li>
+<li><strong>window</strong> Initial search window <code>[x,y,w,h]</code>.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>window</strong> Converged CAMSHIFT window <code>[x,y,w,h]</code>.</li>
+<li><strong>iter</strong> Number of iterations CAMSHIFT took to converge.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Criteria</strong> Stop criteria for the iterative search algorithm. Accepts a
+struct with 'type', 'maxCount', and 'epsilon' fields.
+Default <code>struct('type','Count+EPS', 'maxCount',100, 'epsilon',1.0)</code></li>
+</ul>
+
+<p>The function implements the iterative object search algorithm. It takes the
+input back projection of an object and the initial position. The mass center
+in window of the back projection image is computed and the search window
+center shifts to the mass center. The procedure is repeated until the
+specified number of iterations <code>Criteria.maxCount</code> is done or until the
+window center shifts by less than <code>Criteria.epsilon</code>. The algorithm is used
+inside <a href="CamShift.html">cv.CamShift</a> and, unlike <a href="CamShift.html">cv.CamShift</a>, the search window size or
+orientation do not change during the search. You can simply pass the output
+of <a href="calcBackProject.html">cv.calcBackProject</a> to this function. But better results can be obtained
+if you pre-filter the back projection and remove the noise. For example, you
+can do this by retrieving connected components with <a href="findContours.html">cv.findContours</a>,
+throwing away contours with small area (cv.contourArea), and rendering the
+remaining contours with <a href="drawContours.html">cv.drawContours</a>.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="CamShift.html">cv.CamShift</a>, <a href="calcBackProject.html">cv.calcBackProject</a></div>
+   </body>
+</html>

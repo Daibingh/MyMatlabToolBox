@@ -1,0 +1,42 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.VideoCapture/VideoCapture</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.VideoCapture/VideoCapture</td>
+            <td class="subheader-left">&#26597;&#30475; cv.VideoCapture/VideoCapture &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.VideoCapture/VideoCapture</div>
+      <div class="helpcontent"><p>VideoCapture  Create a new VideoCapture object</p>
+
+<pre><code>cap = <a href="VideoCapture.html">cv.VideoCapture</a>(devid)
+cap = <a href="VideoCapture.html">cv.VideoCapture</a>(filename)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>devid</strong> id of the opened video capturing device (i.e. a
+camera index). If there is a single camera connected, just
+pass 0.</li>
+<li><strong>filename</strong> name of the opened video file (eg. <code>video.avi</code>)
+or image sequence (eg. <code>img_%02d.jpg</code>, which will read
+samples like <code>img_00.jpg</code>, <code>img_01.jpg</code>, <code>img_02.jpg</code>, ...)</li>
+</ul>
+
+<p>Creates a new video capture instance. With no argument, it
+connects to the default camera device found in the system.
+You can specify camera devices by <code>devid</code>, an integer value
+starting from 0. You can also specify a <code>filename</code> to open a
+video file.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="VideoCapture.open.html">cv.VideoCapture/open</a></div>
+   </body>
+</html>

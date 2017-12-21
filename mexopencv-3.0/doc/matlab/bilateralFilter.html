@@ -1,0 +1,77 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.bilateralFilter</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.bilateralFilter</td>
+            <td class="subheader-left">&#26597;&#30475; cv.bilateralFilter &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.bilateralFilter</div>
+      <div class="helpcontent"><p>bilateralFilter  Applies the bilateral filter to an image</p>
+
+<pre><code>result = <a href="bilateralFilter.html">cv.bilateralFilter</a>(img)
+result = <a href="bilateralFilter.html">cv.bilateralFilter</a>(img, 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>img</strong> Source 8-bit or floating-point, 1-channel or 3-channel image.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>result</strong> Destination image of the same size and type as <code>src</code>.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Diameter</strong> Diameter of each pixel neighborhood that is used during
+filtering. If it is non-positive, it is computed from <code>SigmaSpace</code>.
+Default: 7</li>
+<li><strong>SigmaColor</strong> Filter sigma in the color space. A larger value of the
+parameter means that farther colors within the pixel neighborhood (see
+<code>SigmaSpace</code>) will be mixed together, resulting in larger areas of
+semi-equal color. Default: 50.0</li>
+<li><strong>SigmaSpace</strong> Filter sigma in the coordinate space. A larger value of the
+parameter means that farther pixels will influence each other as long
+as their colors are close enough (see <code>SigmaColor</code>). When <code>Diameter&gt;0</code>,
+it specifies the neighborhood size regardless of <code>SigmaSpace</code>.
+Otherwise, <code>Diameter</code> is proportional to <code>SigmaSpace</code>. Default: 50.0</li>
+<li><strong>BorderType</strong> border mode used to extrapolate pixels outside of the
+image. See <a href="copyMakeBorder.html">cv.copyMakeBorder</a>. Default: 'Default'</li>
+</ul>
+
+<p>The function applies bilateral filtering to the input image, as described
+in [CVonline]. <a href="bilateralFilter.html">cv.bilateralFilter</a> can reduce unwanted noise very well while
+keeping edges fairly sharp. However, it is very slow compared to most
+filters.</p>
+
+<p><em>Sigma values</em>: For simplicity, you can set the 2 sigma values to be the
+same. If they are small (<code>&lt; 10</code>), the filter will not have much effect,
+whereas if they are large (<code>&gt; 150</code>), they will have a very strong effect,
+making the image look &quot;cartoonish&quot;.</p>
+
+<p><em>Filter size</em>: Large filters (<code>Diameter &gt; 5</code>) are very slow, so it is
+recommended to use <code>Diameter=5</code> for real-time applications, and perhaps
+<code>Diameter=9</code> for offline applications that need heavy noise filtering.</p>
+
+<h2> References</h2>
+
+<p>[CVonline]:</p>
+
+<blockquote>
+<a href="http://www.dai.ed.ac.uk/CVonline/LOCAL_COPIES/MANDUCHI1/Bilateral_Filtering.html">http://www.dai.ed.ac.uk/CVonline/LOCAL_COPIES/MANDUCHI1/Bilateral_Filtering.html</a></blockquote>
+</div><!--after help -->
+   </body>
+</html>

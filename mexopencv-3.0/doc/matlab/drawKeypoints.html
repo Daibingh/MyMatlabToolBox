@@ -1,0 +1,69 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.drawKeypoints</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.drawKeypoints</td>
+            <td class="subheader-left">&#26597;&#30475; cv.drawKeypoints &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.drawKeypoints</div>
+      <div class="helpcontent"><p>drawKeypoints  Draws keypoints</p>
+
+<pre><code>out = <a href="drawKeypoints.html">cv.drawKeypoints</a>(im, keypoints)
+out = <a href="drawKeypoints.html">cv.drawKeypoints</a>(im, keypoints, 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>im</strong> Source image.</li>
+<li><strong>keypoints</strong> Keypoints from the source image.
+A 1-by-N structure array with the following fields:<ul>
+<li><strong>pt</strong> coordinates of the keypoint <code>[x,y]</code></li>
+<li><strong>size</strong> diameter of the meaningful keypoint neighborhood</li>
+<li><strong>angle</strong> computed orientation of the keypoint (-1 if not
+applicable). Its possible values are in a range [0,360) degrees.
+It is measured relative to image coordinate system (y-axis is
+directed downward), i.e in clockwise.</li>
+<li><strong>response</strong> the response by which the most strong keypoints have
+been selected. Can be used for further sorting or subsampling.</li>
+<li><strong>octave</strong> octave (pyramid layer) from which the keypoint has been
+extracted.</li>
+<li><strong>class_id</strong> object id that can be used to clustered keypoints by an
+object they belong to.</li>
+</ul>
+</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>out</strong> Output image. Its content depends on the option values defining
+what is drawn in the output image. See possible options below.
+By default, the source image, and single keypoints will be drawn.
+For each keypoint, only the center point will be drawn (without
+a circle around the keypoint with the keypoint size and orientation).</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Color</strong> Color of keypoints. If all -1, random colors are picked up.
+default [-1,-1,-1,-1]</li>
+<li><strong>DrawRichKeypoints</strong> For each keypoint, the circle around keypoint with
+keypoint size and orientation will be drawn. default false.</li>
+<li><strong>OutImage</strong> If set, keypoints will be drawn on existing content of output
+image, otherwise source image is used instead. Default not set
+(i.e keypoints are drawn on top of <code>im</code>).</li>
+</ul>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="drawMatches.html">cv.drawMatches</a>, <a href="FeatureDetector.html">cv.FeatureDetector</a></div>
+   </body>
+</html>

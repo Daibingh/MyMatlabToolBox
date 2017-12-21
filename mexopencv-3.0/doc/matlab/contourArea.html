@@ -1,0 +1,64 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.contourArea</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.contourArea</td>
+            <td class="subheader-left">&#26597;&#30475; cv.contourArea &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.contourArea</div>
+      <div class="helpcontent"><p>contourArea  Calculates a contour area</p>
+
+<pre><code>a = <a href="contourArea.html">cv.contourArea</a>(curve)
+a = <a href="contourArea.html">cv.contourArea</a>(curve, 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>curve</strong> Input vector of 2D points (contour vertices) stored in numeric
+array (Nx2/Nx1x2/1xNx2) or cell array of 2-element vectors
+(<code>{[x,y], ...}</code>).</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>a</strong> Output area.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Oriented</strong> Oriented area flag. If it is true, the function returns a
+signed area value, depending on the contour orientation (clockwise or
+counter-clockwise). Using this feature you can determine orientation
+of a contour by taking the sign of an area. By default, the parameter
+is false, which means that the absolute value is returned.</li>
+</ul>
+
+<p>The function computes a contour area. Similarly to <a href="moments.html">cv.moments</a>, the area is
+computed using the Green formula. Thus, the returned area and the number of
+non-zero pixels, if you draw the contour using <a href="drawContours.html">cv.drawContours</a> or <a href="fillPoly.html">cv.fillPoly</a>,
+can be different. Also, the function will most certainly give a wrong results
+for contours with self-intersections.</p>
+
+<h2> Example</h2>
+
+<pre><code>contour = {[0 0], [10 0], [10 10], [5 4]};
+area0 = <a href="contourArea.html">cv.contourArea</a>(contour);
+approx = <a href="approxPolyDP.html">cv.approxPolyDP</a>(contour, 'Epsilon',5, 'Closed',true);
+area1 = <a href="contourArea.html">cv.contourArea</a>(approx);
+fprintf('area0 = %.2f\narea1 = %.2f\napprox poly vertices = %d\n', ...
+    area0, area1, numel(approx));</code></pre>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="arcLength.html">cv.arcLength</a></div>
+   </body>
+</html>

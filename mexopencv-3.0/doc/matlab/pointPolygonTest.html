@@ -1,0 +1,54 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.pointPolygonTest</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.pointPolygonTest</td>
+            <td class="subheader-left">&#26597;&#30475; cv.pointPolygonTest &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.pointPolygonTest</div>
+      <div class="helpcontent"><p>pointPolygonTest  Performs a point-in-contour test</p>
+
+<pre><code>d = <a href="pointPolygonTest.html">cv.pointPolygonTest</a>(contour, pt)
+d = <a href="pointPolygonTest.html">cv.pointPolygonTest</a>(..., 'OptionName',optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>contour</strong> Input contour, stored in numeric array (Nx2/Nx1x2/1xNx2) or
+cell array of 2-element vectors (<code>{[x,y], ...}</code>).</li>
+<li><strong>pt</strong> Point tested against the contour <code>[x,y]</code>.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>d</strong> Output value (See below).</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>MeasureDist</strong> If true, the function estimates the signed distance from
+the point to the nearest contour edge. Otherwise, the function only
+checks if the point is inside a contour or not. default false</li>
+</ul>
+
+<p>The function determines whether the point is inside a contour, outside, or
+lies on an edge (or coincides with a vertex). It returns positive (inside),
+negative (outside), or zero (on an edge) value, correspondingly. When
+<code>MeasureDist=false</code>, the return value is +1, -1, and 0, respectively.
+Otherwise, the return value is a signed distance between the point and the
+nearest contour edge.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="distanceTransform.html">cv.distanceTransform</a>, inpolygon</div>
+   </body>
+</html>

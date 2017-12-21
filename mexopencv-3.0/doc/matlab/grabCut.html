@@ -1,0 +1,83 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.grabCut</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.grabCut</td>
+            <td class="subheader-left">&#26597;&#30475; cv.grabCut &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.grabCut</div>
+      <div class="helpcontent"><p>grabCut  Runs the GrabCut algorithm</p>
+
+<pre><code>mask = <a href="grabCut.html">cv.grabCut</a>(img, rect);
+mask = <a href="grabCut.html">cv.grabCut</a>(img, mask);
+[mask, bgdmodel, fgdmodel] = <a href="grabCut.html">cv.grabCut</a>(...);
+[...] = <a href="grabCut.html">cv.grabCut</a>(..., 'OptionName', optionValue, ...);
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>img</strong> Input 8-bit 3-channel image.</li>
+<li><strong>rect</strong> ROI containing a segmented object. A 1-by-4 vector <code>[x y w h]</code>.
+It will automatically create the <code>mask</code>. The pixels outside of the ROI
+are marked as &quot;obvious background&quot; with label 0, and label 3 for
+foreground (see <code>mask</code>). Using this variant will set <code>Mode</code> to
+'InitWithRect'.</li>
+<li><strong>mask</strong> Input 8-bit single-channel mask of same size as <code>img</code> and type
+<code>uint8</code>. Its elements may have one of the following values:<ul>
+<li><strong>0</strong> an obvious background pixel</li>
+<li><strong>1</strong> an obvious foreground (object) pixel</li>
+<li><strong>2</strong> a possible background pixel</li>
+<li><strong>3</strong> a possible foreground pixel</li>
+</ul>
+</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>mask</strong> output 8-bit single-channel updated mask. The mask is initialized
+by the function when <code>Mode</code> is set to 'InitWithRect' (see <code>rect</code>).</li>
+<li><strong>bgdmodel</strong> Output array for the background model, to be used for next
+iteration. Do not modify it while you are processing the same image.</li>
+<li><strong>fgdmodel</strong> Output array for the foreground model, to be used for next
+iteration. Do not modify it while you are processing the same image.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>BgdModel</strong> Initial array for the background model. A 1x65 double vector.</li>
+<li><strong>FgdModel</strong> Initial array for the foreground model. A 1x65 double vector.</li>
+<li><strong>IterCount</strong> Number of iterations the algorithm should make before
+returning the result. Note that the result can be refined with further
+calls with <code>Mode</code> as 'InitWithMask' or 'Eval'. Default 10</li>
+<li><strong>Mode</strong> Operation mode, default 'Eval'. Could be one of the following:<ul>
+<li><strong>InitWithRect</strong> The function initializes the state and the mask
+using the provided rectangle. After that it runs <code>IterCount</code>
+iterations of the algorithm. This should only be used with the
+variant of the function that takes <code>rect</code> as input.</li>
+<li><strong>InitWithMask</strong> The function initializes the state using the
+provided <code>mask</code>. Then, all the pixels outside of the ROI are
+automatically initialized as background with label 0. This
+should only be used with the variant of the function that takes
+<code>mask</code> as input.</li>
+<li><strong>Eval</strong> The value means that the algorithm should just resume.</li>
+</ul>
+</li>
+</ul>
+
+<p>The function implements the GrabCut image segmentation algorithm.
+<a href="http://en.wikipedia.org/wiki/GrabCut">http://en.wikipedia.org/wiki/GrabCut</a></p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="watershed.html">cv.watershed</a></div>
+   </body>
+</html>

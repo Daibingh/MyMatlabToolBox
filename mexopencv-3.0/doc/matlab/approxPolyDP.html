@@ -1,0 +1,55 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.approxPolyDP</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.approxPolyDP</td>
+            <td class="subheader-left">&#26597;&#30475; cv.approxPolyDP &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.approxPolyDP</div>
+      <div class="helpcontent"><p>approxPolyDP  Approximates a polygonal curve(s) with the specified precision</p>
+
+<pre><code>approxCurve = <a href="approxPolyDP.html">cv.approxPolyDP</a>(curve)
+approxCurve = <a href="approxPolyDP.html">cv.approxPolyDP</a>(curve, 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>curve</strong> Input vector of 2D points stored in numeric array
+(Nx2/Nx1x2/1xNx2) or cell array of 2-element vectors (<code>{[x,y], ...}</code>).
+Supports integer (<code>int32</code>) and floating point (<code>single</code>) classes.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>approxCurve</strong> Result of the approximation. The type should match the
+type of the input curve.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Epsilon</strong> Parameter specifying the approximation accuracy. This is the
+maximum distance between the original curve and its approximation.
+default 2.0</li>
+<li><strong>Closed</strong> If true, the approximated curve is closed (its first and last
+vertices are connected). Otherwise, it is not closed. default true</li>
+</ul>
+
+<p>The functions <a href="approxPolyDP.html">cv.approxPolyDP</a> approximate a curve or a polygon with another
+curve/polygon with less vertices so that the distance between them is less
+or equal to the specified precision. It uses the Douglas-Peucker algorithm
+<a href="http://en.wikipedia.org/wiki/Ramer-Douglas-Peucker_algorithm">http://en.wikipedia.org/wiki/Ramer-Douglas-Peucker_algorithm</a>.</p>
+</div><!--after help -->
+   </body>
+</html>

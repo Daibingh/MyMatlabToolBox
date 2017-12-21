@@ -1,0 +1,55 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getStructuringElement</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getStructuringElement</td>
+            <td class="subheader-left">&#26597;&#30475; cv.getStructuringElement &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.getStructuringElement</div>
+      <div class="helpcontent"><p>getStructuringElement  Returns a structuring element of the specified size and shape for morphological operations</p>
+
+<pre><code>elem = <a href="getStructuringElement.html">cv.getStructuringElement</a>('OptionName', optionValue, ...)
+
+</code></pre>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>elem</strong> Output structuring element of specified shape and size.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Shape</strong> Element shape, default 'Rect'. Could be one of:<ul>
+<li><strong>Rect</strong> a rectangular structuring element: <code>E(i,j)=1</code></li>
+<li><strong>Ellipse</strong> a cross-shaped structuring element: <code>E(i,j)=1</code> if
+<code>i=Anchor(2)</code> or <code>j=Anchor(1)</code>, <code>E(i,j)=0</code> otherwise.</li>
+<li><strong>Cross</strong> an elliptic structuring element, that is, a filled ellipse
+inscribed into the rectangle <code>[0, 0, KSize(1), KSize(2)]</code>.</li>
+</ul>
+</li>
+<li><strong>KSize</strong> Size of the structuring element <code>[w,h]</code>. default [3,3].</li>
+<li><strong>Anchor</strong> Anchor position within the element. The default value (-1,-1)
+means that the anchor is at the center. Note that only the shape of a
+cross-shaped element depends on the anchor position. In other cases
+the anchor just regulates how much the result of the morphological
+operation is shifted.</li>
+</ul>
+
+<p>The function constructs and returns the structuring element that can be
+further passed to <a href="erode.html">cv.erode</a>, <a href="dilate.html">cv.dilate</a> or <a href="morphologyEx.html">cv.morphologyEx</a>. But you can also
+construct an arbitrary binary mask yourself and use it as the structuring
+element.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="sepFilter2D.html">cv.sepFilter2D</a>, <a href="getDerivKernels.html">cv.getDerivKernels</a>, <a href="getGaussianKernel.html">cv.getGaussianKernel</a></div>
+   </body>
+</html>

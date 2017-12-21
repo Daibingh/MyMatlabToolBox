@@ -1,0 +1,93 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.HOGDescriptor/detectMultiScale</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.HOGDescriptor/detectMultiScale</td>
+            <td class="subheader-left">&#26597;&#30475; cv.HOGDescriptor/detectMultiScale &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.HOGDescriptor/detectMultiScale</div>
+      <div class="helpcontent"><p>detectMultiScale  Performs object detection with a multi-scale window</p>
+
+<pre><code>[rcts, weights] = hog.detectMultiScale(im)
+[...] = hog.detectMultiScale(im, 'Option', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>im</strong> 8-bit 1- or 3-channel image where objects are detected.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>rcts</strong> Detected objects boundaries. Cell array of rectangles
+where objects are found, of the form <code>{[x,y,w,h], ...}</code>.</li>
+<li><strong>weights</strong> Vector of associated weights.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>HitThreshold</strong> Threshold for the distance between features
+and SVM classifying plane. Usually it is 0 and should be
+specfied in the detector coefficients (as the last free
+coefficient). But if the free coefficient is omitted
+(which is allowed), you can specify it manually here.
+default 0</li>
+<li><strong>WinStride</strong> Window stride <code>[w,h]</code>. It must be a multiple of
+block stride. Not set by default in which case it uses
+<code>BlockStride</code>.</li>
+<li><strong>Padding</strong> Padding <code>[w,h]</code>. default [0,0]</li>
+<li><strong>Scale</strong> Coefficient of the detection window increase.
+default 1.05</li>
+<li><strong>FinalThreshold</strong> Coefficient to regulate the similarity
+threshold. When detected, some objects can be covered by
+many rectangles. 0 means not to perform grouping. See
+<a href="groupRectangles.html">cv.groupRectangles</a>. default 2.0</li>
+<li><strong>UseMeanshiftGrouping</strong> Flag to use meanshift grouping or the
+default grouping based on merging overlapped rectangles.
+When false, <a href="HOGDes.html">cv.HOGDes</a>.groupRectangles is performed and the
+value of <code>FinalThreshold</code> is used for <code>GroupThreshold</code>.
+When true, <a href="groupRectangles_meanshift.html">cv.groupRectangles_meanshift</a> is performed
+instead, and <code>FinalThreshold</code> is used for the
+<code>DetectThreshold</code> option. default false</li>
+</ul>
+
+<p><code>SvmDetector</code> should be set before calling this method.</p>
+
+<p>The image is repeatedly scaled down by the specified <code>Scale</code>
+factor, as long as it remains larger than <code>hog.WinSize</code> or until
+a maximum of <code>hog.NLevels</code> levels is built. The resized images
+are then searched with a sliding window to detect objects
+similar to the <a href="HOGDescriptor.html">cv.HOGDescriptor</a>.detect method (this method is
+parallelized). Finally the found rectangles are grouped and
+clipped against the image size.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="HOGDescriptor.detect.html">cv.HOGDescriptor/detect</a></div>
+      <!--Method-->
+      <div class="sectiontitle">Method Details</div>
+      <table class="class-details">
+         <tr>
+            <td class="class-detail-label">Access</td>
+            <td>public</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Sealed</td>
+            <td>false</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Static</td>
+            <td>false</td>
+         </tr>
+      </table>
+   </body>
+</html>

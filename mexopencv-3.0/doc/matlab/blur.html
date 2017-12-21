@@ -1,0 +1,53 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.blur</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.blur</td>
+            <td class="subheader-left">&#26597;&#30475; cv.blur &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.blur</div>
+      <div class="helpcontent"><p>blur  Smoothes an image using the normalized box filter</p>
+
+<pre><code>dst = <a href="blur.html">cv.blur</a>(src)
+dst = <a href="blur.html">cv.blur</a>(src, 'OptionName',optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>src</strong> input image; it can have any number of channels, which are
+processed independently, but the depth should be <code>uint8</code>, <code>uint16</code>,
+<code>int16</code>, <code>single</code>, or <code>double</code>.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>dst</strong> output image of the same size and type as <code>src</code>.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>KSize</strong> blurring kernel size. default [5,5]</li>
+<li><strong>Anchor</strong> Anchor point <code>[x,y]</code>. The default value <code>[-1,-1]</code> means that
+the anchor is at the kernel center.</li>
+<li><strong>BorderType</strong> Border mode used to extrapolate pixels outside of the
+image. See <a href="copyMakeBorder.html">cv.copyMakeBorder</a>. default 'Default'</li>
+</ul>
+
+<p>The function smoothes an image using the kernel:</p>
+
+<pre><code>K = ones(KSize) / prod(KSize)</code></pre>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="boxFilter.html">cv.boxFilter</a>, <a href="bilateralFilter.html">cv.bilateralFilter</a>, <a href="GaussianBlur.html">cv.GaussianBlur</a>, <a href="medianBlur.html">cv.medianBlur</a></div>
+   </body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.initCameraMatrix2D</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.initCameraMatrix2D</td>
+            <td class="subheader-left">&#26597;&#30475; cv.initCameraMatrix2D &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.initCameraMatrix2D</div>
+      <div class="helpcontent"><p>initCameraMatrix2D  Finds an initial camera matrix from 3D-2D point correspondences</p>
+
+<pre><code>cameraMatrix = <a href="initCameraMatrix2D.html">cv.initCameraMatrix2D</a>(objectPoints, imagePoints, imageSize)
+[...] = <a href="initCameraMatrix2D.html">cv.initCameraMatrix2D</a>(..., 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>objectPoints</strong> Vector of vectors of the calibration pattern points in
+the calibration pattern coordinate space. Cell array of cell array
+of 3-element vectors are accepted <code>{{[x,y,z],...}, ...}</code>.</li>
+<li><strong>imagePoints</strong> Vector of vectors of the projections of the calibration
+pattern points. Cell array of cell array of 2-element vectors are
+accepted <code>{{[x,y],...}, ...}</code>.</li>
+<li><strong>imageSize</strong> Image size in pixels used to initialize the principal
+point <code>[w,h]</code>.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>cameraMatrix</strong> Camera matrix 3x3, <code>A = [fx 0 cx; 0 fy cy; 0 0 1]</code></li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>AspectRatio</strong> If it is zero or negative, both <code>fx</code> and <code>fy</code> are
+estimated independently. Otherwise, <code>fx = fy * AspectRatio</code>.
+default 1.0</li>
+</ul>
+
+<p>The function estimates and returns an initial camera matrix for the
+camera calibration process. Currently, the function only supports planar
+calibration patterns, which are patterns where each object point has
+z-coordinate=0.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="calibrateCamera.html">cv.calibrateCamera</a></div>
+   </body>
+</html>

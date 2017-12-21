@@ -1,0 +1,43 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.PCA/PCA</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.PCA/PCA</td>
+            <td class="subheader-left">&#26597;&#30475; cv.PCA/PCA &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.PCA/PCA</div>
+      <div class="helpcontent"><p>PCA constructors</p>
+
+<pre><code>pca = <a href="PCA.html">cv.PCA</a>()
+pca = <a href="PCA.html">cv.PCA</a>(data, 'OptionName', optionValue, ...)
+pca = <a href="PCA.html">cv.PCA</a>(S)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>data</strong> input samples stored as matrix rows or matrix columns</li>
+<li><strong>S</strong> A scalar struct to be imported</li>
+</ul>
+
+<h2> Options</h2>
+
+<p>Same set of options as the <a href="PCA.html">cv.PCA</a>.compute method.</p>
+
+<p>The constructor creates an empty PCA object without an argument.
+Use <a href="PCA.html">cv.PCA</a>.compute to analyze data samples. The second form
+accepts data samples with the same arguments as <a href="PCA.html">cv.PCA</a>.compute.
+The third form create a new PCA object from a scalar struct with
+'eigenvectors', 'eigenvalues', and 'mean' fields.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="PCA.html">cv.PCA</a>, <a href="PCA.compute.html">cv.PCA/compute</a></div>
+   </body>
+</html>

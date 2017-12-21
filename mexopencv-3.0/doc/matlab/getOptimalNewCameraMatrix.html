@@ -1,0 +1,71 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getOptimalNewCameraMatrix</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getOptimalNewCameraMatrix</td>
+            <td class="subheader-left">&#26597;&#30475; cv.getOptimalNewCameraMatrix &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.getOptimalNewCameraMatrix</div>
+      <div class="helpcontent"><p>getOptimalNewCameraMatrix  Returns the new camera matrix based on the free scaling parameter</p>
+
+<pre><code>cameraMatrix = <a href="getOptimalNewCameraMatrix.html">cv.getOptimalNewCameraMatrix</a>(cameraMatrix, distCoeffs, imageSize)
+[cameraMatrix, validPixROI] = <a href="getOptimalNewCameraMatrix.html">cv.getOptimalNewCameraMatrix</a>(...)
+[...] = <a href="getOptimalNewCameraMatrix.html">cv.getOptimalNewCameraMatrix</a>(..., 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>cameraMatrix</strong> Input 3x3 camera matrix, <code>A = [fx 0 cx; 0 fy cy; 0 0 1]</code>.</li>
+<li><strong>distCoeffs</strong> Input vector of distortion coefficients
+<code>[k1,k2,p1,p2,k3,k4,k5,k6,s1,s2,s3,s4]</code> of 4, 5, 8, or 12 elements.
+If the vector is empty, the zero distortion coefficients are assumed.</li>
+<li><strong>imageSize</strong> Original image size <code>[w,h]</code>.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>cameraMatrix</strong> Output new camera matrix, 3x3.</li>
+<li><strong>validPixROI</strong> Optional output rectangle <code>[x,y,w,h]</code> that outlines
+all-good-pixels region in the undistorted image. See <code>roi1</code>, <code>roi2</code>
+description in <a href="stereoRectify.html">cv.stereoRectify</a>.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Alpha</strong> Free scaling parameter between 0 (when all the pixels in the
+undistorted image are valid) and 1 (when all the source image
+pixels are retained in the undistorted image). See <a href="stereoRectify.html">cv.stereoRectify</a>
+for details. default 0.8</li>
+<li><strong>NewImageSize</strong> Image size after rectification <code>[w,h]</code>. By default, it is
+set to <code>imageSize</code>.</li>
+<li><strong>CenterPrincipalPoint</strong> Optional flag that indicates whether in the
+new camera matrix the principal point should be at the image
+center or not. By default, the principal point is chosen to best
+fit a subset of the source image (determined by <code>Alpha</code>) to the
+corrected image. default false.</li>
+</ul>
+
+<p>The function computes and returns the optimal new camera matrix based on
+the free scaling parameter. By varying this parameter, you may retrieve
+only sensible pixels <code>Alpha=0</code>, keep all the original image pixels if
+there is valuable information in the corners <code>Alpha=1</code>, or get something
+in between. When <code>Alpha&gt;0</code>, the undistortion result is likely to have some
+black pixels corresponding to &quot;virtual&quot; pixels outside of the captured
+distorted image. The original camera matrix, distortion coefficients,
+the computed new camera matrix, and <code>newImageSize</code> should be passed to
+<a href="initUndistortRectifyMap.html">cv.initUndistortRectifyMap</a> to produce the maps for <a href="remap.html">cv.remap</a>.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="stereoRectify.html">cv.stereoRectify</a>, <a href="initUndistortRectifyMap.html">cv.initUndistortRectifyMap</a>, <a href="remap.html">cv.remap</a></div>
+   </body>
+</html>

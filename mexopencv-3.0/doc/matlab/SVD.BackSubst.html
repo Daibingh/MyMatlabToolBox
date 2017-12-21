@@ -1,0 +1,75 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.SVD/backSubst</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.SVD/backSubst</td>
+            <td class="subheader-left">&#26597;&#30475; cv.SVD/backSubst &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.SVD/backSubst</div>
+      <div class="helpcontent"><p>backSubst  performs a singular value back substitution</p>
+
+<pre><code>dst = svd.backSubst(src)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>src</strong> right-hand side of a linear system <code>(u*w*v')*dst = src</code>
+to be solved, where <code>A</code> has been previously decomposed
+into <code>u</code>, <code>w</code>, and <code>vt</code> (stored in class).</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>dst</strong> found solution of the system.</li>
+</ul>
+
+<p>The method calculates a back substitution for the specified
+right-hand side.</p>
+
+<pre><code>x = vt^T * diag(w)^-1 * u^T * src
+  ~ A^-1* src
+</code></pre>
+
+<p>Using this technique you can either get a very accurate
+solution of the convenient linear system, or the best (in the
+least-squares terms) pseudo-solution of an overdetermined
+linear system.</p>
+
+<h2> Note</h2>
+
+<p>Explicit SVD with the further back substitution only
+makes sense if you need to solve many linear systems with the
+same left-hand side (for example, <code>src</code>). If all you need is to
+solve a single system (possibly with multiple <code>rhs</code> immediately
+available), simply call <code>solve</code> add pass 'SVD' there. It does
+absolutely the same thing.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="SVD.compute.html">cv.SVD/compute</a></div>
+      <!--Method-->
+      <div class="sectiontitle">Method Details</div>
+      <table class="class-details">
+         <tr>
+            <td class="class-detail-label">Access</td>
+            <td>public</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Sealed</td>
+            <td>false</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Static</td>
+            <td>false</td>
+         </tr>
+      </table>
+   </body>
+</html>

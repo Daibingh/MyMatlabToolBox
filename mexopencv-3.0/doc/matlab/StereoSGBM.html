@@ -1,0 +1,306 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.StereoSGBM</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.StereoSGBM</td>
+            <td class="subheader-left">&#26597;&#30475; cv.StereoSGBM &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.StereoSGBM</div>
+      <div class="helpcontent"><p>StereoSGBM  Class for computing stereo correspondence using the semi-global block matching algorithm</p>
+
+<p>The class implements the modified H. Hirschmuller algorithm [HH08] that
+differs from the original one as follows:</p>
+
+<ul>
+<li><p>By default, the algorithm is single-pass, which means that you
+consider only 5 directions instead of 8. Set <code>Mode='HH'</code> in the
+contructor to run the full variant of the algorithm but beware that it
+may consume a lot of memory.</p>
+</li>
+<li><p>The algorithm matches blocks, not individual pixels. Though, setting
+<code>BlockSize=1</code> reduces the blocks to single pixels.</p>
+</li>
+<li><p>Mutual information cost function is not implemented. Instead, a
+simpler Birchfield-Tomasi sub-pixel metric from [BT96] is used.
+Though, the color images are supported as well.</p>
+</li>
+<li><p>Some pre- and post- processing steps from K. Konolige algorithm
+<a href="StereoBM.html">cv.StereoBM</a> are included, for example: pre-filtering (<code>XSobel</code> type)
+and post-filtering (uniqueness check, quadratic interpolation and
+speckle filtering).</p>
+</li>
+</ul>
+
+<h2> Usage</h2>
+
+<pre><code>bm = <a href="StereoSGBM.html">cv.StereoSGBM</a>('MinDisparity',0, ...);
+bm.BlockSize = ...;
+disparity = bm.compute(left, right);
+</code></pre>
+
+<h2> References</h2>
+
+<p>[HH08]:</p>
+
+<blockquote>
+<p>Heiko Hirschmuller. &quot;Stereo processing by semiglobal matching and
+mutual information&quot;. Pattern Analysis and Machine Intelligence, IEEE
+Transactions on, 30(2):328-341, 2008.</p>
+</blockquote>
+
+<p>[BT96]:</p>
+
+<blockquote>
+<p>Stan Birchfield and Carlo Tomasi. &quot;A pixel dissimilarity measure that
+is insensitive to image sampling&quot;. Pattern Analysis and Machine
+Intelligence, IEEE Transactions on, 20(4):401-406, 1998.</p>
+</blockquote>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="StereoSGBM.StereoSGBM.html">cv.StereoSGBM/StereoSGBM</a>, <a href="StereoSGBM.compute.html">cv.StereoSGBM/compute</a>, <a href="StereoBM.html">cv.StereoBM</a>,
+   disparity</div>
+      <!--Class-->
+      <div class="sectiontitle">Class Details</div>
+      <table class="class-details">
+         <tr>
+            <td class="class-detail-label">Superclasses</td>
+            <td>handle</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Sealed</td>
+            <td>false</td>
+         </tr>
+         <tr>
+            <td class="class-detail-label">Construct on load</td>
+            <td>false</td>
+         </tr>
+      </table>
+      <!--Constructors-->
+      <div class="sectiontitle"><a name="constructors"></a>Constructor Summary
+      </div>
+      <table class="summary-list">
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.StereoSGBM.html">StereoSGBM</a></td>
+            <td class="m-help">Creates StereoSGBM object&nbsp;</td>
+         </tr>
+      </table>
+      <!--Properties-->
+      <div class="sectiontitle"><a name="properties"></a>Property Summary
+      </div>
+      <table class="summary-list">
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.BlockSize.html">BlockSize</a></td>
+            <td class="m-help">Matched block size, default 7&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.Disp12MaxDiff.html">Disp12MaxDiff</a></td>
+            <td class="m-help">Maximum allowed difference (in integer pixel units) in the&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.MinDisparity.html">MinDisparity</a></td>
+            <td class="m-help">Minimum possible disparity value, default 0&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.Mode.html">Mode</a></td>
+            <td class="m-help">one of 'SGBM' (default) or 'HH' (runs the full-scale two-pass&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.NumDisparities.html">NumDisparities</a></td>
+            <td class="m-help">Maximum disparity minus minimum disparity, positive and divisble by&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.P1.html">P1</a></td>
+            <td class="m-help">first parameter controlling the disparity smoothness, default 0&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.P2.html">P2</a></td>
+            <td class="m-help">second parameter controlling the disparity smoothness, default 0&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.PreFilterCap.html">PreFilterCap</a></td>
+            <td class="m-help">Truncation value for prefiltering image pixels, default 0&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.SpeckleRange.html">SpeckleRange</a></td>
+            <td class="m-help">Maximum disparity variation within each connected component (when&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.SpeckleWindowSize.html">SpeckleWindowSize</a></td>
+            <td class="m-help">Maximum size of smooth disparity regions to consider their noise&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.UniquenessRatio.html">UniquenessRatio</a></td>
+            <td class="m-help">uniqueness ratio, default 0&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.id.html">id</a></td>
+            <td class="m-help">Object ID&nbsp;</td>
+         </tr>
+      </table>
+      <!--Methods-->
+      <div class="sectiontitle"><a name="methods"></a>Method Summary
+      </div>
+      <table class="summary-list">
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.addlistener.html">addlistener</a></td>
+            <td class="m-help">Add listener for event.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.clear.html">clear</a></td>
+            <td class="m-help">Clears the algorithm state.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.compute.html">compute</a></td>
+            <td class="m-help">Computes disparity map for the specified stereo pair&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.delete.html">delete</a></td>
+            <td class="m-help">Destructor&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.empty.html">empty</a></td>
+            <td class="m-help">Checks if algorithm object is empty.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.eq.html">eq</a></td>
+            <td class="m-help">== (EQ)   Test handle equality.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.findobj.html">findobj</a></td>
+            <td class="m-help">Find objects matching specified conditions.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.findprop.html">findprop</a></td>
+            <td class="m-help">Find property of MATLAB handle object.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.ge.html">ge</a></td>
+            <td class="m-help">>= (GE)   Greater than or equal relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.getDefaultName.html">getDefaultName</a></td>
+            <td class="m-help">Returns the algorithm string identifier.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.gt.html">gt</a></td>
+            <td class="m-help">> (GT)   Greater than relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">Sealed 
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.isvalid.html">isvalid</a></td>
+            <td class="m-help">Test handle validity.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.le.html">le</a></td>
+            <td class="m-help"><= (LE)   Less than or equal relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.load.html">load</a></td>
+            <td class="m-help">Loads algorithm from a file or a string.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.lt.html">lt</a></td>
+            <td class="m-help">< (LT)   Less than relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.ne.html">ne</a></td>
+            <td class="m-help">~= (NE)   Not equal relation for handles.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.notify.html">notify</a></td>
+            <td class="m-help">Notify listeners of event.&nbsp;</td>
+         </tr>
+         <tr class="summary-item">
+            <td class="attributes">
+               &nbsp;
+               
+            </td>
+            <td class="name"><a href="StereoSGBM.save.html">save</a></td>
+            <td class="m-help">Saves the algorithm to a file.&nbsp;</td>
+         </tr>
+      </table>
+      <!--Events-->
+      <div class="sectiontitle"><a name="events"></a>Event Summary
+      </div>
+      <table class="summary-list">
+         <tr class="summary-item">
+            <td class="name"><a href="StereoSGBM.ObjectBeingDestroyed.html">ObjectBeingDestroyed</a></td>
+            <td class="m-help">Notifies listeners that a particular object has been destroyed.&nbsp;</td>
+         </tr>
+      </table>
+   </body>
+</html>

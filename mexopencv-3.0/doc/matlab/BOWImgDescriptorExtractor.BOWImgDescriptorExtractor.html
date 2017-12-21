@@ -1,0 +1,66 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.BOWImgDescriptorExtractor/BOWImgDescriptorExtractor</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.BOWImgDescriptorExtractor/BOWImgDescriptorExtractor</td>
+            <td class="subheader-left">&#26597;&#30475; cv.BOWImgDescriptorExtractor/BOWImgDescriptorExtractor &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.BOWImgDescriptorExtractor/BOWImgDescriptorExtractor</div>
+      <div class="helpcontent"><p>BOWImgDescriptorExtractor  The constructor</p>
+
+<pre><code>extractor = <a href="BOWImgDescriptorExtractor.html">cv.BOWImgDescriptorExtractor</a>(dextractor, dmatcher)
+extractor = <a href="BOWImgDescriptorExtractor.html">cv.BOWImgDescriptorExtractor</a>({dextractor, 'key',val,...}, {dmatcher, 'key',val,...})
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>dextractor</strong> Descriptor extractor that is used to compute
+descriptors for an input image and its keypoints. It can
+be specified by a string containing the type of
+descriptor extractor, such as 'SIFT' or 'SURF'. See
+<a href="DescriptorExtractor.html">cv.DescriptorExtractor</a>.DescriptorExtractor for possible
+types.</li>
+<li><strong>dmatcher</strong> Descriptor matcher that is used to find the
+nearest word of the trained vocabulary for each keypoint
+descriptor of the image. It can be spacified by a string
+specifying the type of descriptor extractor, such as
+'BruteForce' or 'BruteForce-L1'. See
+<a href="DescriptorMatcher.html">cv.DescriptorMatcher</a>.DescriptorMatcher for possible types.
+default 'BruteForce'</li>
+</ul>
+
+<p>In the first variant, it creates descriptor extractor/matcher
+of the given types using default parameters (by calling the
+default constructors).</p>
+
+<p>In the second variant, it creates descriptor extractor/matcher
+of the given types using the specified options.
+Each algorithm type takes optional arguments. Each of the
+extractor/matcher are specified by a cell-array that starts
+with the type name followed by option arguments, as in:
+<code>{'Type', 'OptionName',optionValue, ...}</code>.
+Refer to the individual extractor/matcher functions to see a
+list of possible options of each algorithm.</p>
+
+<h2> Examples</h2>
+
+<pre><code>% first variant
+extractor = <a href="BOWImgDescriptorExtractor.html">cv.BOWImgDescriptorExtractor</a>('ORB', 'BruteForce');
+
+% second variant
+extractor = <a href="BOWImgDescriptorExtractor.html">cv.BOWImgDescriptorExtractor</a>(...
+    {'FastFeatureDetector', 'Threshold',10}, ...
+    {'BFMatcher', 'NormType','L2'});</code></pre>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="DescriptorExtractor.html">cv.DescriptorExtractor</a>, <a href="DescriptorMatcher.html">cv.DescriptorMatcher</a></div>
+   </body>
+</html>

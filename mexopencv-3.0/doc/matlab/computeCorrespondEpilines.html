@@ -1,0 +1,69 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.computeCorrespondEpilines</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.computeCorrespondEpilines</td>
+            <td class="subheader-left">&#26597;&#30475; cv.computeCorrespondEpilines &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.computeCorrespondEpilines</div>
+      <div class="helpcontent"><p>computeCorrespondEpilines  For points in an image of a stereo pair, computes the corresponding epilines in the other image</p>
+
+<pre><code>lines = <a href="computeCorrespondEpilines.html">cv.computeCorrespondEpilines</a>(points, F)
+[...] = <a href="computeCorrespondEpilines.html">cv.computeCorrespondEpilines</a>(..., 'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>points</strong> Input points. Nx2/Nx1x2/1xNx2 floating-point array, or cell
+array of 2-element vectors <code>{[x,y], ...}</code>.</li>
+<li><strong>F</strong> 3x3 Fundamental matrix that can be estimated using
+<a href="findFundamentalMat.html">cv.findFundamentalMat</a> or <a href="stereoRectify.html">cv.stereoRectify</a>.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>lines</strong> Output vector of the epipolar lines corresponding to the points
+in the other image. Each line <code>ax + by + c = 0</code> is encoded by 3
+numbers <code>(a,b,c)</code>. Nx3/Nx1x3 numeric matrix or a cell-array of
+3-element vectors <code>{[a,b,c], ...}</code> depending on <code>points</code> format.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>WhichImage</strong> Index of the image (1 or 2) that contains the points.
+default 1.</li>
+</ul>
+
+<p>For every point in one of the two images of a stereo pair, the function
+finds the equation of the corresponding epipolar line in the other image.</p>
+
+<p>From the fundamental matrix definition (see cv.findFundamentalMat), line
+<code>l_i^(2)</code> in the second image for the point <code>p_i^(1)</code> in the first image
+(when <code>WhichImage=1</code>) is computed as:</p>
+
+<pre><code>l_i^(2) = F * p_i^(1)
+</code></pre>
+
+<p>And vice versa, when <code>WhichImage=2</code>, <code>l_i^(1)</code> is computed from <code>p_i^(2)</code>
+as:</p>
+
+<pre><code>l_i^(1) = F^T * p_i^(2)
+</code></pre>
+
+<p>Line coefficients are defined up to a scale. They are normalized so that
+<code>a_i^2 + b_i^2 = 1</code>.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="findFundamentalMat.html">cv.findFundamentalMat</a>, <a href="stereoRectify.html">cv.stereoRectify</a>, epipolarLine</div>
+   </body>
+</html>

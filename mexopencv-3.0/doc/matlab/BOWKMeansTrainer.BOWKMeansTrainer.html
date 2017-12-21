@@ -1,0 +1,53 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.BOWKMeansTrainer/BOWKMeansTrainer</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.BOWKMeansTrainer/BOWKMeansTrainer</td>
+            <td class="subheader-left">&#26597;&#30475; cv.BOWKMeansTrainer/BOWKMeansTrainer &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.BOWKMeansTrainer/BOWKMeansTrainer</div>
+      <div class="helpcontent"><p>BOWKMeansTrainer  The constructor</p>
+
+<pre><code>trainer = <a href="BOWKMeansTrainer.html">cv.BOWKMeansTrainer</a>(dictionarySize)
+[...] = <a href="BOWKMeansTrainer.html">cv.BOWKMeansTrainer</a>(...,'OptionName', optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>dictionarySize</strong> Number of clusters.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>Criteria</strong> The algorithm termination criteria, that is, the
+maximum number of iterations and/or the desired accuracy.
+The accuracy is specified as <code>Criteria.epsilon</code>. As soon
+as each of the cluster centers moves by less than
+<code>Criteria.epsilon</code> on some iteration, the algorithm stops.
+default <code>struct('type','Count+EPS', 'maxCount',100, 'epsilon',eps('float'))</code></li>
+<li><strong>Attempts</strong> The number of times the algorithm is executed
+using different initial labelings. The algorithm returns
+the labels that yield the best compactness. default 3.</li>
+<li><strong>Initialization</strong> Method to initialize seeds, default 'PP'.
+One of the followings:<ul>
+<li><strong>'Random'</strong> Select random initial centers in each
+attempt.</li>
+<li><strong>'PP'</strong>  Use kmeans++ center initialization by
+Arthur and Vassilvitskii [Arthur2007].</li>
+</ul>
+</li>
+</ul>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="BOWKMeansTrainer.html">cv.BOWKMeansTrainer</a>, <a href="kmeans.html">cv.kmeans</a></div>
+   </body>
+</html>

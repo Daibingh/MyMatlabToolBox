@@ -1,0 +1,43 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.boundingRect</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.boundingRect</td>
+            <td class="subheader-left">&#26597;&#30475; cv.boundingRect &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.boundingRect</div>
+      <div class="helpcontent"><p>boundingRect  Calculates the up-right bounding rectangle of a point set</p>
+
+<pre><code>rct = <a href="boundingRect.html">cv.boundingRect</a>(points)
+rct = <a href="boundingRect.html">cv.boundingRect</a>(mask)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>points</strong> Input 2D point set, stored in numeric array
+(Nx2/Nx1x2/1xNx2) or cell array of 2-element vectors (<code>{[x,y], ...}</code>).
+Supports integer (<code>int32</code>) and floating point (<code>single</code>) classes.</li>
+<li><strong>mask</strong> Binary mask, a 1-channel NxM 8-bit or logical matrix.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>rct</strong> Output rectangle <code>[x,y,w,h]</code>.</li>
+</ul>
+
+<p>The function calculates and returns the minimal up-right bounding rectangle
+for the specified point set.</p>
+</div><!--after help -->
+   </body>
+</html>

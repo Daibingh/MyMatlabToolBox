@@ -1,0 +1,62 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///D:/Program Files/MATLAB/R2014a/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getRectSubPix</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB &#25991;&#20214;&#24110;&#21161;: cv.getRectSubPix</td>
+            <td class="subheader-left">&#26597;&#30475; cv.getRectSubPix &#30340;&#20195;&#30721;</td>
+            <td class="subheader-right"><a href="index.html">Index</a></td>
+         </tr>
+      </table>
+      <div class="title">cv.getRectSubPix</div>
+      <div class="helpcontent"><p>getRectSubPix  Retrieves a pixel rectangle from an image with sub-pixel accuracy</p>
+
+<pre><code>dst = <a href="getRectSubPix.html">cv.getRectSubPix</a>(src, patchSize, center)
+dst = <a href="getRectSubPix.html">cv.getRectSubPix</a>(..., 'OptionName',optionValue, ...)
+</code></pre>
+
+<h2> Input</h2>
+
+<ul>
+<li><strong>src</strong> Source image, 8-bit integer or 32-bit floating-point, 1- or
+3-channels.</li>
+<li><strong>patchSize</strong> Size of the extracted patch <code>[w,h]</code>.</li>
+<li><strong>center</strong> Floating point coordinates of the center of the extracted
+rectangle within the source image. The center <code>[x,y]</code> must be inside
+the image.</li>
+</ul>
+
+<h2> Output</h2>
+
+<ul>
+<li><strong>dst</strong> Extracted patch that has the size <code>PatchSize</code>, the same number
+of channels as <code>src</code>, and the specified type in <code>PatchType</code>.</li>
+</ul>
+
+<h2> Options</h2>
+
+<ul>
+<li><strong>PatchType</strong> Depth of the extracted pixels. By default (-1), they have
+the same depth as <code>src</code>. Supports either <code>uint8</code> or <code>single</code>.</li>
+</ul>
+
+<p>The function <a href="getRectSubPix.html">cv.getRectSubPix</a> extracts pixels from <code>src</code>:</p>
+
+<pre><code>dst(x,y) = src(x + center(1) - (size(dst,2)-1)*0.5,
+               y + center(2) - (size(dst,1)-1)*0.5)
+</code></pre>
+
+<p>where the values of the pixels at non-integer coordinates are retrieved using
+bilinear interpolation. Every channel of multi-channel images is processed
+independently. While the center of the rectangle must be inside the image,
+parts of the rectangle may be outside. In this case, the replication border
+mode is used to extrapolate the pixel values outside of the image.</p>
+</div><!--after help --><!--seeAlso--><div class="footerlinktitle">See also</div><div class="footerlink"> <a href="warpAffine.html">cv.warpAffine</a>, <a href="warpPerspective.html">cv.warpPerspective</a></div>
+   </body>
+</html>
